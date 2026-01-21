@@ -13,6 +13,11 @@ on:
     paths:
       - '**'
       - '!*.md'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   dockerbuild:
     with:
